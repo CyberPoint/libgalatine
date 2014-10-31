@@ -2,6 +2,7 @@
 This module implements an ARP spoofing detector in the Pyretic language.
 
 @author: ccabot
+@author: zmiller
 July 2014
 
 The strategy: 
@@ -39,8 +40,8 @@ class arp_spoofing_detector(base_module):
 
         super(arp_spoofing_detector, self).__init__(self.query)
 
-        # set policy
-        self.policy = if_(ARP, self.query + flood(), flood())
+        # set policy to check for ARP spoofing if the current packet is an ARP packet
+        self.policy = if_(ARP, self.query + identity(), identity())
 
         self.under_investigation = set()
 

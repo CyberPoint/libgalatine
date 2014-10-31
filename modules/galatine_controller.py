@@ -31,6 +31,7 @@ def main():
     # instantiate object to hold shared data across modules
     cd = ControlData()
 
-    policies = [initial_policy(cd)] + map(lambda x: x(cd), security_measures)    
+    # after checking a packet with all of the security modules then use the inital routing policy 
+    policies = map(lambda x: x(cd), security_measures) + [initial_policy(cd)]
     return sequential(policies) 
 
