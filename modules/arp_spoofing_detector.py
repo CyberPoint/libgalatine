@@ -41,7 +41,7 @@ class arp_spoofing_detector(base_module):
         super(arp_spoofing_detector, self).__init__(self.query)
 
         # set policy to check for ARP spoofing if the current packet is an ARP packet
-        self.policy = if_(ARP, self.query + identity(), identity())
+        self.policy = if_(ARP, self.query + identity, identity)
 
         self.under_investigation = set()
 
