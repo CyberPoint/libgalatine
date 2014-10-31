@@ -21,7 +21,7 @@ class promiscuous_host_detector(base_module):
         super(promiscuous_host_detector,self).__init__(self.query)
 
         # set policy
-        self.policy = flood()
+        self.policy = identity
 
         test_promiscuity_thread = Thread(target=self.test_promiscuity)
         test_promiscuity_thread.daemon = True

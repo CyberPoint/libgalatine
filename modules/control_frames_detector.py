@@ -23,7 +23,7 @@ class control_frames_detector(base_module):
         super(control_frames_detector,self).__init__(self.query)
 
         # set policy
-        self.policy = flood() + (match(ethtype=FLOW_CONTROL) >> self.query)
+        self.policy = identity + (match(ethtype=FLOW_CONTROL) >> self.query)
 
     def monitor_ethtype(self, pkt):
         """Look for hosts emitting suspicious frames"""

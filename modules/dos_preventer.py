@@ -23,7 +23,7 @@ class dos_preventer(base_module):
         super(dos_preventer,self).__init__(self.query)
 
         # set policy
-        self.policy = self.query + flood()
+        self.policy = self.query + identity
 
         # set thread to clear counts every day
         self.mac_count_reset_thread = Thread(target=self.clear_mac_count)
