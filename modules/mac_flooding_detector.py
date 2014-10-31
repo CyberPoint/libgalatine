@@ -23,7 +23,7 @@ class mac_flooding_detector(base_module):
         super(mac_flooding_detector,self).__init__(self.query)
 
         # set policy
-        self.policy = self.query + flood()
+        self.policy = self.query + identity
 
         # set thread to clear counts every day
         self.mac_count_reset_thread = Thread(target=self.clear_mac_count)

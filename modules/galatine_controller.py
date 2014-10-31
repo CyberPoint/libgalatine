@@ -21,8 +21,8 @@ security_measures = [
     dos_preventer,
     control_frames_detector, 
     mac_flooding_detector, 
-    arp_spoofing_detector,
-    promiscuous_host_detector
+    arp_spoofing_detector
+  #,  promiscuous_host_detector
 ]
 
 def main(): 
@@ -31,6 +31,7 @@ def main():
     # instantiate object to hold shared data across modules
     cd = ControlData()
 
-    policies = [initial_policy(cd)] + map(lambda x: x(cd), security_measures)    
+    # after checking a packet with all of the security modules then use the inital routing policy 
+    policies = map(lambda x: x(cd), security_measures) + [initial_policy(cd)]
     return sequential(policies) 
 

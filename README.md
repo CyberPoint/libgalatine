@@ -25,7 +25,6 @@ By default, galatine provides protection against the following:
 
 * ARP spoofing
 * MAC flooding
-* Hosts entering promiscuous mode
 * DoSing the controller
 * Ethernet control frames   
 
@@ -39,9 +38,13 @@ more than one option, and remediation strategy will be configurable.
 Environment
 -----------
 The easiest environment in which to experiment with this controller is
-mininet. Recommended command:
+mininet.
+ Recommended command:
 
 	sudo mn --controller remote --topo single,4
+
+Please note that mininet does not work with the promiscuous mode detection. This is
+due to the fact that mininet hosts are always in promiscuous mode.
 
 Testing
 -------
