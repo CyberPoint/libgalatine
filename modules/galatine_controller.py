@@ -21,8 +21,8 @@ security_measures = [
     dos_preventer,
     control_frames_detector, 
     mac_flooding_detector, 
-    arp_spoofing_detector,
-    promiscuous_host_detector
+    arp_spoofing_detector
+  #,  promiscuous_host_detector
 ]
 
 def main(): 
